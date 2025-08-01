@@ -1,0 +1,11 @@
+@import "@template/ui/global.css";
+
+@source "../../src/**/*.{js,ts,jsx,tsx}";
+
+html {
+    scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+    width: 0px;
+}

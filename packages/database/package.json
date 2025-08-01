@@ -1,0 +1,17 @@
+{
+  "name": "@template/database",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "prisma-command": "bun --env-file=../../.env.local --stdio prisma"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "5.5.4"
+  },
+  "prisma": {
+    "schema": "prisma/schema"
+  }
+}

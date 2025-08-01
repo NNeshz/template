@@ -1,5 +1,7 @@
 # NextJS + Elysia + Better Auth + Supabase
 
+![Screenshot del proyecto](./Screenshot.png)
+
 This is a template for a NextJS + Elysia + Better Auth + Supabase project. It uses the following technologies:
 
 - [NextJS](https://nextjs.org/) for the frontend
