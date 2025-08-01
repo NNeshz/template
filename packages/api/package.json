@@ -1,0 +1,17 @@
+{
+  "name": "@template/api",
+  "version": "1.0.50",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check-types": "tsc --noEmit",
+    "clean-workspace": "rm -rf node_modules"
+  },
+  "dependencies": {
+    "elysia": "latest",
+    "@sinclair/typebox": "^0.34.14"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "module": "src/index.js"
+}

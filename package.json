@@ -1,0 +1,32 @@
+{
+  "name": "template",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "envs": "turbo envs",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "check-types": "turbo run check-types",
+    "shadcn": "bun --filter @template/ui shadcn",
+    "prisma": "bun --filter @template/database prisma-command",
+    "clean-workspaces": "turbo clean-workspace && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2",
+    "turbo": "^2.5.5",
+    "typescript": "5.8.3"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "bun@1.2.19",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "dependencies": {
+    "@elysiajs/cors": "^1.3.3",
+    "@elysiajs/swagger": "^1.3.1",
+    "@sinclair/typebox": "^0.34.38"
+  }
+}

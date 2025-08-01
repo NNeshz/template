@@ -1,0 +1,17 @@
+{
+  "name": "@template/backend_worker",
+  "version": "1.0.50",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "bun --env-file=../../.env.local run --watch src/index.ts",
+    "check-types": "tsc --noEmit",
+    "clean-workspace": "rm -rf node_modules"
+  },
+  "dependencies": {
+    "elysia": "latest"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "module": "src/index.js"
+}
