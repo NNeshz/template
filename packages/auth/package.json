@@ -3,7 +3,7 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "generate": "bunx --env-file=../../.env.local @better-auth/cli@latest generate --output ./../../packages/database/prisma/schema/schema.prisma -y",
+    "generate": "bunx --env-file=../../.env @better-auth/cli@latest generate --output ./../../packages/database/prisma/schema/schema.prisma -y",
     "clean-workspace": "rm -rf node_modules"
   },
   "devDependencies": {
