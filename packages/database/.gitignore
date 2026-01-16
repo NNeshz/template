@@ -9,7 +9,10 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
-generated
+
+# Drizzle migrations (optional - remove if you want to track migrations)
+# drizzle/
+
 # Caches
 
 .cache
@@ -173,4 +176,3 @@ dist
 
 # Finder (MacOS) folder config
 .DS_Store
-/generated/prisma
