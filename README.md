@@ -27,7 +27,7 @@ This project includes the following packages/apps:
 - `backend_worker`: an [Elysia](https://elysiajs.com/) app
 - `api`: another [Elysia](https://elysiajs.com/) app
 - `auth`: a custom authentication module using [Better Auth](https://better-auth.com/)
-- `database`: a custom database module using [Supabase](https://supabase.com/) with Prisma
+- `database`: a custom database module using [Supabase](https://supabase.com/) with Drizzle
 
 - `@template/ui`: a stub React component library shared by both `web` and `backend_worker` applications
 - `@template/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
