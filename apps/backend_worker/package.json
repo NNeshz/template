@@ -8,7 +8,8 @@
     "clean-workspace": "rm -rf node_modules"
   },
   "dependencies": {
-    "elysia": "latest"
+    "@template/api": "*",
+    "elysia": "^1.4.27"
   },
   "devDependencies": {
     "bun-types": "latest"

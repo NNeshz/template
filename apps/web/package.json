@@ -11,7 +11,11 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.90.21",
+    "@template/api": "*",
+    "@template/auth": "*",
     "@template/ui": "*",
+    "better-auth": "^1.4.4",
     "next": "^15.4.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"

@@ -1,36 +1,38 @@
 import { buttonVariants } from "@template/ui/src/components/button";
 import { cn } from "@template/ui/src/lib/utils";
 import Link from "next/link";
-import { IconBrandGithub, IconArrowRight } from "@tabler/icons-react"
+import { IconBrandGithub } from "@tabler/icons-react";
+import { SignInGoogle } from "@/modules/auth/components/sign-in-google";
 
 export default function Page() {
   return (
-    <div className="h-[100dvh] w-[100dvw] flex flex-col items-center justify-center p-8 space-y-4">
-      <h1 className="text-6xl font-bold text-center">
+    <div className="flex h-[100dvh] w-[100dvw] flex-col items-center justify-center space-y-4 p-8">
+      <h1 className="text-center text-6xl font-bold">
         NextJS + Elysia + Better Auth + Supabase
       </h1>
-      <p className="text-lg text-muted-foreground max-w-2xl text-center leading-relaxed">
+      <p className="max-w-2xl text-center text-lg leading-relaxed text-muted-foreground">
         Un template que combina todo lo moderno de{" "}
-        <span className="text-primary font-semibold">
+        <span className="font-semibold text-primary">
           NextJS, Elysia, Better Auth y Supabase
         </span>{" "}
         más la calidad de desarrollo con un plus de Typescript.
       </p>
-      <span className="flex space-x-2">
+      <div className="flex flex-wrap items-center justify-center gap-3">
+        <SignInGoogle />
         <Link
-          href={"https://github.com/NNeshz/template"}
+          href="https://github.com/NNeshz/template"
           target="_blank"
           className={cn(
             buttonVariants({
-              variant: "default",
-              className: "hover:bg-primary/90 hover:cursor-pointer",
-            })
+              variant: "outline",
+              className: "hover:cursor-pointer",
+            }),
           )}
         >
           <IconBrandGithub />
           Repositorio
         </Link>
-      </span>
+      </div>
     </div>
   );
 }

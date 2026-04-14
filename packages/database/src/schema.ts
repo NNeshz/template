@@ -4,6 +4,8 @@ import {
   boolean,
   timestamp,
   uniqueIndex,
+  uuid,
+  varchar,
 } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
 
@@ -164,3 +166,16 @@ export const invitationRelations = relations(invitation, ({ one }) => ({
     references: [user.id],
   }),
 }));
+
+// ==================== OWNER NOTES (template vertical slice) ====================
+export const ownerNotes = pgTable("owner_notes", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  ownerId: text("owner_id")
+    .notNull()
+    .references(() => user.id, { onDelete: "cascade" }),
+  title: varchar("title", { length: 120 }).notNull(),
+  body: text("body"),
+  createdAt: timestamp("created_at", { mode: "date", withTimezone: true })
+    .notNull()
+    .defaultNow(),
+});
