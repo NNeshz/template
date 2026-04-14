@@ -1,15 +1,12 @@
-import { NotesHeader } from "@/modules/notes/components/notes-header";
-import { OwnerNotesForm } from "@/modules/notes/components/owner-notes-form";
-import { OwnerNotesList } from "@/modules/notes/components/owner-notes-list";
-
 export default function NotesPage() {
   return (
     <div className="flex w-full flex-col gap-8">
-      <NotesHeader />
-      <OwnerNotesForm />
-      <section className="space-y-3">
-        <h2 className="text-lg font-semibold">Tus notas</h2>
-        <OwnerNotesList />
+      <section className="rounded-lg border border-dashed p-8 text-center">
+        <h1 className="text-2xl font-bold tracking-tight">Notas</h1>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Esta sección quedó limpia. La integración con API y base de datos fue
+          removida.
+        </p>
       </section>
     </div>
   );

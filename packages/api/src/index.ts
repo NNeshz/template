@@ -7,7 +7,6 @@ import { env } from "./utils/envs";
 import { betterAuthPlugin } from "./utils/better-auth-plugin";
 import { openApiDocumentation } from "./utils/openapi-meta";
 import { pingRoutes } from "./modules/ping/ping.routes";
-import { ownerNotesRoutes } from "./modules/notes/notes.routes";
 
 const allowedOrigins = [env.NEXT_PUBLIC_FRONTEND_URL].filter(
   (origin): origin is string => Boolean(origin),
@@ -26,7 +25,6 @@ export const api = new Elysia({
     }),
   )
   .use(pingRoutes)
-  .use(ownerNotesRoutes)
   .use(
     openapi({
       path: "/openapi",

@@ -22,7 +22,6 @@
     "paths": {
       "@/*": ["../../apps/web/*"],
       "@template/ui/*": ["../../packages/ui/*"],
-      "@template/api/*": ["../../packages/api/*"],
       "@template/auth/*": ["../../packages/auth/*"]
     }
   },

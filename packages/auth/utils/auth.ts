@@ -7,7 +7,7 @@ import { db } from "@template/database";
 export const auth = betterAuth({
   appName: "template",
   database: drizzleAdapter(db, {
-    provider: "pg"
+    provider: "pg",
   }),
   secret: process.env.AUTH_SECRET,
   baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
@@ -22,15 +22,8 @@ export const auth = betterAuth({
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-      scope: ["email", "profile", "openid"]
-    }
-  },
-  advanced: {
-    crossSubDomainCookies: {
-      enabled: true,
+      scope: ["email", "profile", "openid"],
     },
   },
-  plugins: [
-    openAPI()
-  ]
-})
+  plugins: [openAPI()],
+});
