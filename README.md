@@ -1,7 +1,5 @@
 # Full-Stack Template (Next.js + Elysia + Better Auth + Drizzle)
 
-![Landing page screenshot](./Screenshot.png)
-
 Production-oriented monorepo template with a clear architecture contract:
 
 - `apps/web` for the frontend (Next.js App Router)
