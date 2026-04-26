@@ -1,0 +1,21 @@
+{
+  "name": "@repo/auth",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "exports": {
+    ".": "./index.ts",
+    "./*": "./src/*"
+  },
+  "dependencies": {
+    "@repo/database": "*",
+    "better-auth": "^1.6.9",
+    "next": "^16.2.4"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
