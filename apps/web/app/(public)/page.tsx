@@ -5,15 +5,6 @@ export default function Home() {
   return (
     <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-[family-name:var(--font-geist-sans)] sm:p-20">
       <main className="row-start-2 flex flex-col items-center gap-8">
-        <Image
-          src="/turborepo-dark.svg"
-          alt="Logo"
-          width={180}
-          height={38}
-          priority
-          className="dark:invert"
-        />
-
         <ol className="list-inside list-decimal text-center text-sm/6 font-[family-name:var(--font-geist-mono)] sm:text-left">
           <li className="mb-2 tracking-[-.01em]">
             Clona el repo y configura tu{" "}
