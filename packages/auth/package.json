@@ -9,13 +9,10 @@
   },
   "dependencies": {
     "@repo/database": "*",
-    "better-auth": "^1.6.9",
-    "next": "^16.2.4"
-  },
-  "devDependencies": {
-    "@types/bun": "latest"
+    "better-auth": "^1.6.9"
   },
   "peerDependencies": {
+    "next": ">=15",
     "typescript": "^5"
   }
 }

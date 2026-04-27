@@ -11,10 +11,12 @@
     "jsx": "preserve",
     "paths": {
       "@/*": ["./src/*"],
-      "@app/web": ["../../apps/web"],
-      "@app/web/*": ["../../apps/web/*"],
-      "@app/docs": ["../../apps/docs"],
-      "@app/docs/*": ["../../apps/docs/*"]
+      "@repo/api": ["../api/src/index.ts"],
+      "@repo/api/src/*": ["../api/src/*"],
+      "@repo/auth": ["../auth/index.ts"],
+      "@repo/auth/*": ["../auth/*"],
+      "@repo/database": ["../database/index.ts"],
+      "@repo/database/*": ["../database/*"]
     }
   },
   "include": ["src/**/*"],

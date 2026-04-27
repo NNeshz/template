@@ -5,7 +5,7 @@ import { NextRequest } from "next/server";
 import type { auth } from "@repo/auth";
 
 export const authClient = createAuthClient({
-  baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
+  baseURL: process.env.NEXT_PUBLIC_BACKEND,
   plugins: [inferAdditionalFields<typeof auth>()],
 });
 
