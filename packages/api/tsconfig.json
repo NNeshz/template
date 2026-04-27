@@ -34,9 +34,9 @@
       "@repo/api": ["./src/index.ts"],
       "@repo/api/src/*": ["./src/*"],
       "@repo/auth": ["../auth/index.ts"],
-      "@repo/auth/*": ["../auth/*"],
+      "@repo/auth/*": ["../auth/src/*"],
       "@repo/database": ["../database/index.ts"],
-      "@repo/database/*": ["../database/*"]
+      "@repo/database/*": ["../database/src/*"]
     }
   },
   "include": ["**/*.ts"],

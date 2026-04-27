@@ -14,8 +14,8 @@ const hostGrotesk = Host_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Template",
-  description: "Template",
+  title: "@repo",
+  description: "@repo",
 };
 
 export default function RootLayout({
