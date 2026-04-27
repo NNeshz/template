@@ -1,7 +1,10 @@
+import { api } from "@repo/api";
 import { Elysia } from "elysia";
 
-const app = new Elysia().get("/", () => "Hello Elysia").listen(3000);
+const port = Number(process.env.PORT) || 8080;
+
+const app = new Elysia().use(api).listen({ port, hostname: "0.0.0.0" });
 
 console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
+  `🦊 Elysia at ${app.server?.hostname}:${app.server?.port} — OpenAPI (Scalar): /api/openapi — spec JSON: /api/openapi/json`,
 );

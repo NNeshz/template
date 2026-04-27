@@ -14,8 +14,6 @@ const envSchema = t.Object({
   GOOGLE_CLIENT_SECRET: t.String(),
 });
 
-type EnvSchema = typeof envSchema.static;
-
 const processEnv = {
   ...process.env,
   NODE_ENV: process.env.NODE_ENV || "development",
@@ -25,9 +23,7 @@ const validateEnv = () => {
   if (!Value.Check(envSchema, processEnv)) {
     const errors = Value.Errors(envSchema, processEnv);
     for (const error of errors) {
-      console.error(
-        `❌ Variable inválida: ${error.path}, Detalles: ${error.message}`,
-      );
+      console.error(`❌ Variable inválida: ${error.path} — ${error.message}`);
     }
     throw new Error("Configuración de entorno inválida.");
   }
@@ -39,7 +35,6 @@ declare global {
   namespace NodeJS {
     interface ProcessEnv {
       [key: string]: string | undefined;
-
       DATABASE_URL: string;
       BETTER_AUTH_SECRET: string;
       BETTER_AUTH_URL: string;
