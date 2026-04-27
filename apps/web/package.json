@@ -15,11 +15,13 @@
     "@repo/auth": "*",
     "@repo/database": "*",
     "@repo/ui": "*",
+    "@tailwindcss/postcss": "^4.2.4",
     "@tanstack/react-query": "^5.100.5",
     "next": "16.2.0",
-    "tw-animate-css": "^1.2.5",
+    "postcss": "^8.5.12",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "tw-animate-css": "^1.2.5"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
