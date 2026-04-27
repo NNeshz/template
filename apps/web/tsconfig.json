@@ -14,7 +14,9 @@
       "@repo/auth": ["../../packages/auth/index.ts"],
       "@repo/auth/*": ["../../packages/auth/*"],
       "@repo/database": ["../../packages/database/index.ts"],
-      "@repo/database/*": ["../../packages/database/*"]
+      "@repo/database/*": ["../../packages/database/*"],
+      "@repo/ui": ["../../packages/ui/src"],
+      "@repo/ui/*": ["../../packages/ui/src/*"]
     }
   },
   "include": [
