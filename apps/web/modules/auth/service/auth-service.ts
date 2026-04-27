@@ -1,4 +1,4 @@
-import { authClient } from "@repo/auth/src/client/index";
+import { authClient } from "@repo/auth/client";
 import { errorMessageFromUnknown } from "@/utils/normalize-error";
 
 function getFrontendBaseUrl(): string {

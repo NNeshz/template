@@ -4,24 +4,25 @@ import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { Slot } from "radix-ui"
 
-import { useIsMobile } from "@/hooks/use-mobile"
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/button"
-import { Input } from "@/components/input"
-import { Separator } from "@/components/separator"
+import { useIsMobile } from "../hooks/use-mobile"
+import { cn } from "../lib/utils"
+import { Button } from "../components/button"
+import { Input } from "../components/input"
+import { Separator } from "../components/separator"
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTitle,
-} from "@/components/sheet"
-import { Skeleton } from "@/components/skeleton"
+} from "../components/sheet"
+import { Skeleton } from "../components/skeleton"
 import {
   Tooltip,
   TooltipContent,
+  TooltipProvider,
   TooltipTrigger,
-} from "@/components/tooltip"
+} from "../components/tooltip"
 import { IconLayoutSidebar } from "@tabler/icons-react"
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state"
@@ -525,15 +526,17 @@ function SidebarMenuButton({
   }
 
   return (
-    <Tooltip>
-      <TooltipTrigger asChild>{button}</TooltipTrigger>
-      <TooltipContent
-        side="right"
-        align="center"
-        hidden={state !== "collapsed" || isMobile}
-        {...tooltip}
-      />
-    </Tooltip>
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>{button}</TooltipTrigger>
+        <TooltipContent
+          side="right"
+          align="center"
+          hidden={state !== "collapsed" || isMobile}
+          {...tooltip}
+        />
+      </Tooltip>
+    </TooltipProvider>
   )
 }
 

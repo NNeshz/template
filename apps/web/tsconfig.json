@@ -12,7 +12,7 @@
       "@repo/api": ["../../packages/api/src/index.ts"],
       "@repo/api/src/*": ["../../packages/api/src/*"],
       "@repo/auth": ["../../packages/auth/index.ts"],
-      "@repo/auth/*": ["../../packages/auth/*"],
+      "@repo/auth/*": ["../../packages/auth/src/*"],
       "@repo/database": ["../../packages/database/index.ts"],
       "@repo/database/*": ["../../packages/database/*"],
       "@repo/ui": ["../../packages/ui/src"],

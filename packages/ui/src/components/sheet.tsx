@@ -3,8 +3,8 @@
 import * as React from "react"
 import { Dialog as SheetPrimitive } from "radix-ui"
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/button"
+import { cn } from "../lib/utils"
+import { Button } from "../components/button"
 import { IconX } from "@tabler/icons-react"
 
 function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
