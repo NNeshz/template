@@ -1,0 +1,9 @@
+{
+  "extends": "@template/typescript-config/node.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": { "@template/database/*": ["./src/*"] }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}
