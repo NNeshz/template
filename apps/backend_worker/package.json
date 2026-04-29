@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "bun run --watch src/index.ts",
-    "build": "bun build src/index.ts --outdir dist --target bun"
+    "dev": "bun --env-file=../../.env run --watch src/index.ts",
+    "build": "bun --env-file=../../.env build src/index.ts --outdir dist --target bun"
   },
   "dependencies": {
-    "@template/api": "*"
+    "@template/api": "*",
+    "elysia": "^1.4.28"
   },
   "devDependencies": {
     "@template/typescript-config": "*"
