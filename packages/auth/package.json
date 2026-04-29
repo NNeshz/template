@@ -1,0 +1,17 @@
+{
+  "name": "@template/auth",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@template/database": "*",
+    "better-auth": "^1.6.9",
+    "next": "^16.2.4"
+  },
+  "devDependencies": {
+    "@template/typescript-config": "*",
+    "@types/bun": "latest"
+  }
+}

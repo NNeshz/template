@@ -1,0 +1,9 @@
+{
+  "extends": "@template/typescript-config/node.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": { "@template/auth/*": ["./src/*"] }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}
