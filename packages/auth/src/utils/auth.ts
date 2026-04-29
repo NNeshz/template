@@ -11,14 +11,14 @@ export const auth = betterAuth({
   }),
   secret: process.env.BETTER_AUTH_SECRET,
   baseURL: process.env.BETTER_AUTH_URL,
-  trustedOrigins: [process.env.NEXT_PUBLIC_FRONTEND_URL as string],
+  trustedOrigins: [process.env.NEXT_PUBLIC_FRONTEND as string],
   emailAndPassword: {
     enabled: false,
   },
   socialProviders: {
-    github: {
-      clientId: process.env.GITHUB_CLIENT_ID as string,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
+    google: {
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     },
   },
   plugins: [openAPI()],

@@ -1,0 +1,24 @@
+{
+  "name": "@template/api",
+  "version": "1.0.50",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^1.4.2",
+    "@elysiajs/eden": "^1.4.9",
+    "@elysiajs/openapi": "^1.4.15",
+    "@sinclair/typebox": "^0.34.49",
+    "@template/auth": "*",
+    "@template/database": "*",
+    "elysia": "latest"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "@template/typescript-config": "*"
+  },
+  "module": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}
