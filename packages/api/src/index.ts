@@ -1,10 +1,10 @@
 import { Elysia } from "elysia";
 import { cors } from "@elysiajs/cors";
 import { openapi } from "@elysiajs/openapi";
-import { env } from "@template/api/utils/envs";
+import { env } from "./utils/envs";
 
-import { betterAuthPlugin } from "@template/api/utils/better-auth-plugin";
-import { openApiDocumentation } from "@template/api/utils/openapi-meta";
+import { betterAuthPlugin } from "./utils/better-auth-plugin";
+import { openApiDocumentation } from "./utils/openapi-meta";
 
 const allowedOrigins = [env.NEXT_PUBLIC_FRONTEND].filter(
   (origin): origin is string => Boolean(origin),

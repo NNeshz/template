@@ -1,4 +1,4 @@
-import type { Api as server } from "@template/api/index";
+import type { Api as server } from "../index";
 import { treaty } from "@elysiajs/eden";
 
 export const createApiClient: (

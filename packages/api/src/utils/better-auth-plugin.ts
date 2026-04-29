@@ -1,6 +1,6 @@
 import { Elysia, status } from "elysia";
 import { auth } from "@template/auth";
-import { apiError } from "@template/api/utils/api-envelope";
+import { apiError } from "./api-envelope";
 
 export const betterAuthPlugin = new Elysia({ name: "better-auth-plugin" })
   .mount(auth.handler)

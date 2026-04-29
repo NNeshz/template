@@ -1,4 +1,4 @@
-import { env } from "@template/api/utils/envs";
+import { env } from "./envs";
 
 /**
  * Tag names for `detail.tags` on routes. Declared in OpenAPI `documentation.tags`
@@ -20,7 +20,7 @@ const envelopeDoc = [
   "Los webhooks externos validan firma (Polar Standard Webhooks, Resend/Svix); el cuerpo de éxito sigue el mismo `data` cuando aplica.",
 ].join("\n");
 
-const backendUrl = env.NEXT_PUBLIC_BACKEND_URL?.replace(/\/$/, "");
+const backendUrl = env.NEXT_PUBLIC_BACKEND?.replace(/\/$/, "");
 
 /** Passed to `@elysiajs/openapi` `documentation` option. */
 export const openApiDocumentation = {
