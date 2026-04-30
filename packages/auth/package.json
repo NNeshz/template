@@ -3,9 +3,18 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    ".": "./src/index.ts",
-    "./client": "./src/client/index.ts",
-    "./client/vanilla": "./src/client/vanilla.ts"
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./client": {
+      "types": "./src/client/index.ts",
+      "default": "./src/client/index.ts"
+    },
+    "./client/vanilla": {
+      "types": "./src/client/vanilla.ts",
+      "default": "./src/client/vanilla.ts"
+    }
   },
   "dependencies": {
     "@template/database": "*",

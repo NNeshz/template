@@ -2,7 +2,13 @@
   "extends": "@template/typescript-config/node.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": { "@template/api/*": ["./src/*"] }
+    "paths": {
+      "@template/api/*": ["./src/*"],
+      "@template/auth": ["../auth/src/index.ts"],
+      "@template/auth/*": ["../auth/src/*"],
+      "@template/database": ["../database/src/index.ts"],
+      "@template/database/*": ["../database/src/*"]
+    }
   },
   "include": ["src"]
 }

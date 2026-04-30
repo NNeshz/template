@@ -2,7 +2,11 @@
   "extends": "@template/typescript-config/node.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": { "#/*": ["./src/*"] }
+    "paths": {
+      "#/*": ["./src/*"],
+      "@template/api": ["../../packages/api/src/index.ts"],
+      "@template/api/*": ["../../packages/api/src/*"]
+    }
   },
   "include": ["src"]
 }
