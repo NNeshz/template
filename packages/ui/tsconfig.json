@@ -1,7 +1,8 @@
 {
-  "extends": "@template/typescript-config/nextjs.json",
+  "extends": "@template/typescript-config/react-library.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "paths": {
       "@/*": ["./src/*"],
       "@template/ui/*": ["./src/*"]
