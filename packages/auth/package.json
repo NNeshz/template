@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./client": "./src/client/index.ts",
+    "./client/vanilla": "./src/client/vanilla.ts"
   },
   "dependencies": {
     "@template/database": "*",
