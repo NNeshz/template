@@ -1,6 +1,11 @@
+import type { Metadata } from "next";
 import { BackButton } from "@/modules/auth/components/back-button";
 import { SignInButton } from "@/modules/auth/components/sign-in-button";
 import { SetupChecklist } from "@/modules/auth/components/setup-checklist";
+
+export const metadata: Metadata = {
+  title: "Auth | Template",
+};
 
 export default function PageAuth() {
   return (

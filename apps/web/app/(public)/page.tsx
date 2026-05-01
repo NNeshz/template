@@ -1,5 +1,10 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { Button } from "@template/ui/components/button";
+
+export const metadata: Metadata = {
+  title: "Inicio | Template",
+};
 
 export default function Home() {
   return (
@@ -21,7 +26,11 @@ export default function Home() {
             <a href="/auth">Probar Auth</a>
           </Button>
           <Button variant="outline" asChild>
-            <a href="https://github.com/nneshz/template" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://github.com/nneshz/template"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Ver repositorio
             </a>
           </Button>
