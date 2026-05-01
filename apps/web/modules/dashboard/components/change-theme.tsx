@@ -46,7 +46,7 @@ export function ChangeThemeSelector({ className }: { className?: string }) {
     return (
       <div
         className={className}
-        style={{ minHeight: 32, minWidth: 100 }}
+        style={{ minHeight: 28, minWidth: 100 }}
         aria-hidden
       />
     );
@@ -58,8 +58,10 @@ export function ChangeThemeSelector({ className }: { className?: string }) {
         <TooltipTrigger asChild>
           <Button
             variant="ghost"
-            size="sm"
-            className={cn("justify-start rounded-xl", className)}
+            className={cn(
+              "h-auto justify-start rounded-sm px-2 py-1.5 text-sm font-normal",
+              className
+            )}
             onClick={handleClick}
             aria-label={`Cambiar tema (actual: ${THEME_LABELS[currentTheme]})`}
           >

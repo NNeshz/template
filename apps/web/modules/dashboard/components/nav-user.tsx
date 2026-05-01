@@ -2,18 +2,18 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { IconChevronsUp, IconLogout, IconSettings } from "@tabler/icons-react";
+import { IconSelector, IconLogout, IconSettings } from "@tabler/icons-react";
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from "@template/ui/components/avatar";
-import { buttonVariants } from "@template/ui/components/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@template/ui/components/dropdown-menu";
 import {
@@ -84,11 +84,11 @@ export function NavUser() {
                 <span className="truncate font-medium">{name}</span>
                 <span className="truncate text-xs">{email}</span>
               </div>
-              <IconChevronsUp className="ml-auto size-4" />
+              <IconSelector className="ml-auto size-4" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
-            className="w-(--radix-dropdown-menu-trigger-width) min-w-56 space-y-2 rounded-xl"
+            className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-xl"
             side={isMobile ? "bottom" : "right"}
             align="end"
             sideOffset={4}
@@ -110,19 +110,16 @@ export function NavUser() {
                 </div>
               </div>
             </DropdownMenuLabel>
+            <DropdownMenuSeparator />
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Link
-                    href="/dashboard/settings"
-                    className={buttonVariants({
-                      variant: "ghost",
-                      className: "w-full justify-start rounded-xl",
-                    })}
-                  >
-                    <IconSettings className="size-4" />
-                    <span>Configuración</span>
-                  </Link>
+                  <DropdownMenuItem asChild className="cursor-pointer">
+                    <Link href="/dashboard/settings">
+                      <IconSettings className="size-4" />
+                      <span>Configuración</span>
+                    </Link>
+                  </DropdownMenuItem>
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>Clic para ir a la configuración</p>
@@ -130,6 +127,7 @@ export function NavUser() {
               </Tooltip>
             </TooltipProvider>
             <ChangeThemeSelector className="w-full" />
+            <DropdownMenuSeparator />
             <DropdownMenuItem
               onClick={handleLogout}
               className="cursor-pointer text-destructive"

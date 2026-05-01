@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { IconBrandGoogle } from "@tabler/icons-react";
+import { IconBrandGoogleFilled } from "@tabler/icons-react";
 import { Button } from "@template/ui/components/button";
 import { authService } from "@/modules/auth/service/auth-service";
 
@@ -19,7 +19,7 @@ export function SignInButton() {
 
   return (
     <Button onClick={handleSignIn} disabled={loading} className="w-full gap-2">
-      <IconBrandGoogle size={18} />
+      <IconBrandGoogleFilled size={18} />
       {loading ? "Redirigiendo..." : "Continuar con Google"}
     </Button>
   );
