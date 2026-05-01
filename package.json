@@ -7,7 +7,12 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
-    "clean": "find . -type d \\( -name '.next' -o -name '.turbo' -o -name 'node_modules' \\) -prune -exec rm -rf {} +"
+    "clean": "find . -type d \\( -name '.next' -o -name '.turbo' -o -name 'node_modules' \\) -prune -exec rm -rf {} +",
+    "db:generate": "cd packages/database && bun run db:generate",
+    "db:migrate": "cd packages/database && bun run db:migrate",
+    "db:push": "cd packages/database && bun run db:push",
+    "db:studio": "cd packages/database && bun run db:studio",
+    "ui:add": "bunx shadcn@latest add --cwd packages/ui"
   },
   "devDependencies": {
     "prettier": "^3.7.4",

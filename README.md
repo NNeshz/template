@@ -1,159 +1,119 @@
-# Turborepo starter
+# @template
 
-This Turborepo starter is maintained by the Turborepo core team.
+Monorepo full-stack con Next.js 16, Hono, Better Auth, Drizzle ORM y Bun.
 
-## Using this example
+## Stack
 
-Run the following command:
+| Capa | Tecnología |
+|---|---|
+| Frontend | Next.js 16 (App Router) |
+| Backend | Hono + Elysia (Eden Treaty) |
+| Auth | Better Auth + Google OAuth |
+| Base de datos | PostgreSQL + Drizzle ORM |
+| UI | shadcn/ui + Tabler Icons |
+| Monorepo | Turborepo + Bun Workspaces |
 
-```sh
-npx create-turbo@latest
+## Estructura
+
+```
+apps/
+  web/              # Next.js 16 — frontend + dashboard
+  backend_worker/   # Hono — API server
+packages/
+  api/              # Definición de rutas y cliente Eden
+  auth/             # Configuración de Better Auth
+  database/         # Schema Drizzle + cliente PostgreSQL
+  ui/               # Librería de componentes (shadcn/ui)
+  env/              # Validación centralizada de variables de entorno
+  typescript-config/ # tsconfig base compartida
 ```
 
-## What's inside?
+## Primeros pasos
 
-This Turborepo includes the following packages/apps:
+### 1. Renombrar el scope del monorepo
 
-### Apps and Packages
+Reemplaza `@template` por el nombre de tu app en todos los archivos:
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo build
+```bash
+find . -not -path "*/node_modules/*" -not -path "*/.next/*" \
+  -type f \( -name "*.ts" -o -name "*.tsx" -o -name "*.json" \) \
+  -exec sed -i '' 's/@template/@miapp/g' {} +
 ```
 
-Without global `turbo`, use your package manager:
+Luego cambia `appName` en `packages/auth/src/utils/auth.ts`:
 
-```sh
-cd my-turborepo
-npx turbo build
-bun dlx turbo build
-bun exec turbo build
+```ts
+appName: "miapp",
 ```
 
-You can build a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+### 2. Configurar variables de entorno
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo build --filter=docs
+```bash
+cp .env.example .env
 ```
 
-Without global `turbo`:
+Edita `.env` con tus valores:
 
-```sh
-npx turbo build --filter=docs
-bun exec turbo build --filter=docs
-bun exec turbo build --filter=docs
+```env
+DATABASE_URL=postgresql://user:password@localhost:5432/miapp
+
+BETTER_AUTH_SECRET=           # genera con: openssl rand -base64 32
+BETTER_AUTH_URL=http://localhost:8080
+
+NEXT_PUBLIC_BACKEND=http://localhost:8080
+NEXT_PUBLIC_FRONTEND=http://localhost:3000
+
+GOOGLE_CLIENT_ID=             # Google Cloud Console → Credenciales → OAuth 2.0
+GOOGLE_CLIENT_SECRET=
 ```
 
-### Develop
+### 3. Instalar dependencias
 
-To develop all apps and packages, run the following command:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo dev
+```bash
+bun install
 ```
 
-Without global `turbo`, use your package manager:
+### 4. Inicializar la base de datos
 
-```sh
-cd my-turborepo
-npx turbo dev
-bun exec turbo dev
-bun exec turbo dev
+```bash
+bun run db:push
 ```
 
-You can develop a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+### 5. Levantar el proyecto
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo dev --filter=web
+```bash
+bun run dev
 ```
 
-Without global `turbo`:
+- Frontend: http://localhost:3000
+- Backend: http://localhost:8080
 
-```sh
-npx turbo dev --filter=web
-bun exec turbo dev --filter=web
-bun exec turbo dev --filter=web
+## Comandos
+
+### Desarrollo
+
+```bash
+bun run dev          # levanta todos los apps en paralelo
+bun run build        # build de producción
+bun run check-types  # verifica tipos en todo el monorepo
+bun run lint         # lint en todo el monorepo
+bun run clean        # elimina .next, .turbo y node_modules
 ```
 
-### Remote Caching
+### Base de datos
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo login
+```bash
+bun run db:push      # aplica el schema directamente (ideal para desarrollo)
+bun run db:generate  # genera archivos de migración
+bun run db:migrate   # aplica las migraciones pendientes
+bun run db:studio    # abre Drizzle Studio en el navegador
 ```
 
-Without global `turbo`, use your package manager:
+### UI — agregar componentes shadcn
 
-```sh
-cd my-turborepo
-npx turbo login
-bun exec turbo login
-bun exec turbo login
+```bash
+bun run ui:add button
+bun run ui:add dialog input label
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo link
-```
-
-Without global `turbo`:
-
-```sh
-npx turbo link
-bun exec turbo link
-bun exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.dev/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.dev/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.dev/docs/reference/configuration)
-- [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
+Los componentes se instalan en `packages/ui/src/components/` y quedan disponibles para toda la app vía `@template/ui/components/<nombre>`.

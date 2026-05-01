@@ -3,6 +3,6 @@ import { inferAdditionalFields } from "better-auth/client/plugins";
 import type { auth } from "../utils/auth";
 
 export const authClientVanilla = createAuthClientVanilla({
-  baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
+  baseURL: process.env.NEXT_PUBLIC_BACKEND,
   plugins: [inferAdditionalFields<typeof auth>()],
 });
