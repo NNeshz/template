@@ -44,5 +44,12 @@ export const api = new Elysia({
  *     .use(myModule);   // ← always chain on the same expression
  *
  * Api = typeof api will automatically include all chained modules.
+ *
+ * IMPORTANT — inside route handlers always use status() not error():
+ *   import { status } from "elysia";
+ *   .get("/x", ({ params }) => {
+ *     if (!found) return status(404, apiError(404, "Not found"));
+ *   })
+ * error() loses its type when the authenticated/authorized macro is active.
  */
 export type Api = typeof api;

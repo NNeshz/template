@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "@template/ui/globals.css";
+@import "@template/ui/globals.css"; /* rename script replaces @template here too */
 
 @source "../../../packages/ui/src/**/*.{js,ts,jsx,tsx}";
 @source "../**/*.{js,ts,jsx,tsx}";

@@ -35,7 +35,7 @@ Reemplaza `@template` por el nombre de tu app en todos los archivos:
 
 ```bash
 find . -not -path "*/node_modules/*" -not -path "*/.next/*" \
-  -type f \( -name "*.ts" -o -name "*.tsx" -o -name "*.json" \) \
+  -type f \( -name "*.ts" -o -name "*.tsx" -o -name "*.json" -o -name "*.css" \) \
   -exec sed -i '' 's/@template/@miapp/g' {} +
 ```
 

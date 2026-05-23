@@ -2,9 +2,9 @@ import { authClient } from "@template/auth/client";
 import { errorMessageFromUnknown } from "@/utils/normalize-error";
 
 function getFrontendBaseUrl(): string {
-  const raw = process.env.NEXT_PUBLIC_FRONTEND;
+  const raw = process.env.NEXT_PUBLIC_FRONTEND_URL;
   if (typeof raw !== "string" || !raw.trim()) {
-    throw new Error("Falta NEXT_PUBLIC_FRONTEND");
+    throw new Error("Falta NEXT_PUBLIC_FRONTEND_URL");
   }
   return raw.replace(/\/$/, "");
 }
