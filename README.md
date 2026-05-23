@@ -31,13 +31,11 @@ packages/
 
 ### 1. Renombrar el scope del monorepo
 
-Reemplaza `@template` por el nombre de tu app en todos los archivos:
-
 ```bash
-find . -not -path "*/node_modules/*" -not -path "*/.next/*" \
-  -type f \( -name "*.ts" -o -name "*.tsx" -o -name "*.json" -o -name "*.css" \) \
-  -exec sed -i '' 's/@template/@miapp/g' {} +
+bun run rename miapp
 ```
+
+El script reemplaza `@template` → `@miapp` en todos los archivos relevantes (`.ts`, `.tsx`, `.js`, `.json`, `.css`) y confirma al final que no quedó ninguna referencia suelta.
 
 Actualiza también `appName` en `packages/auth/src/utils/auth.ts`:
 
