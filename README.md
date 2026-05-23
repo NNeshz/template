@@ -78,18 +78,15 @@ bun install
 
 ### 4. Inicializar la base de datos
 
-**Desarrollo** — aplica el schema directamente, sin archivos de migración:
-
-```bash
-bun run db:push
-```
-
-**Producción** — genera archivos SQL y aplícalos con historial:
+Genera las migraciones y aplícalas:
 
 ```bash
 bun run db:generate
 bun run db:migrate
 ```
+
+> `db:push` también está disponible para iterar el schema rápido en desarrollo local,
+> pero saltárselo en el setup inicial deja el proyecto sin historial de migraciones baseline.
 
 ### 5. Levantar el proyecto
 
