@@ -17,6 +17,9 @@ export const user = pgTable("user", {
 	image: t.text("image"),
 	createdAt: t.timestamp("created_at", { precision: 6, withTimezone: true }).notNull(),
 	role: appRoleEnum("role").default("employee"),
+	banned: t.boolean("banned"),
+	banReason: t.text("ban_reason"),
+	banExpires: t.timestamp("ban_expires", { precision: 6, withTimezone: true }),
 	updatedAt: t.timestamp("updated_at", { precision: 6, withTimezone: true }).notNull(),
 });
 
