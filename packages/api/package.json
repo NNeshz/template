@@ -19,6 +19,7 @@
   },
   "module": "./src/index.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./eden": "./src/eden/index.ts"
   }
 }

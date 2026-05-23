@@ -20,7 +20,7 @@ const envelopeDoc = [
   "Los webhooks externos validan firma (Polar Standard Webhooks, Resend/Svix); el cuerpo de éxito sigue el mismo `data` cuando aplica.",
 ].join("\n");
 
-const backendUrl = env.NEXT_PUBLIC_BACKEND?.replace(/\/$/, "");
+const backendUrl = env.NEXT_PUBLIC_BACKEND_URL?.replace(/\/$/, "");
 
 /** Passed to `@elysiajs/openapi` `documentation` option. */
 export const openApiDocumentation = {

@@ -8,8 +8,10 @@ const envSchema = t.Object({
   DATABASE_URL: t.String(),
   BETTER_AUTH_SECRET: t.String(),
   BETTER_AUTH_URL: t.String(),
-  NEXT_PUBLIC_BACKEND: t.String(),
-  NEXT_PUBLIC_FRONTEND: t.String(),
+  NEXT_PUBLIC_BACKEND_URL: t.String(),
+  NEXT_PUBLIC_FRONTEND_URL: t.String(),
+  NEXT_PUBLIC_FRONTEND_WWW: t.Optional(t.String()),
+  COOKIE_DOMAIN: t.Optional(t.String()),
   GOOGLE_CLIENT_ID: t.String(),
   GOOGLE_CLIENT_SECRET: t.String(),
 });
@@ -38,8 +40,10 @@ declare global {
       DATABASE_URL: string;
       BETTER_AUTH_SECRET: string;
       BETTER_AUTH_URL: string;
-      NEXT_PUBLIC_BACKEND: string;
-      NEXT_PUBLIC_FRONTEND: string;
+      NEXT_PUBLIC_BACKEND_URL: string;
+      NEXT_PUBLIC_FRONTEND_URL: string;
+      NEXT_PUBLIC_FRONTEND_WWW?: string;
+      COOKIE_DOMAIN?: string;
       GOOGLE_CLIENT_ID: string;
       GOOGLE_CLIENT_SECRET: string;
     }

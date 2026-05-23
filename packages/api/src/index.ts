@@ -6,9 +6,11 @@ import { env } from "./utils/envs";
 import { betterAuthPlugin } from "./utils/better-auth-plugin";
 import { openApiDocumentation } from "./utils/openapi-meta";
 
-const allowedOrigins = [env.NEXT_PUBLIC_FRONTEND].filter(
-  (origin): origin is string => Boolean(origin),
-);
+const allowedOrigins = [
+  env.NEXT_PUBLIC_FRONTEND_URL,
+  env.NEXT_PUBLIC_FRONTEND_WWW,
+  env.NEXT_PUBLIC_BACKEND_URL,
+].filter((origin): origin is string => Boolean(origin));
 
 export const api = new Elysia({
   prefix: "/api",
@@ -33,4 +35,14 @@ export const api = new Elysia({
     }),
   );
 
+/**
+ * How to add new modules:
+ *   import { myModule } from "./modules/my-module/routes";
+ *   export const api = new Elysia(...)
+ *     .use(betterAuthPlugin)
+ *     ...
+ *     .use(myModule);   // ← always chain on the same expression
+ *
+ * Api = typeof api will automatically include all chained modules.
+ */
 export type Api = typeof api;

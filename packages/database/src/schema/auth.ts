@@ -1,6 +1,13 @@
 import { relations } from "drizzle-orm";
-import { pgTable } from "drizzle-orm/pg-core";
+import { pgTable, pgEnum } from "drizzle-orm/pg-core";
 import * as t from "drizzle-orm/pg-core";
+
+export const appRoleEnum = pgEnum("app_role", [
+  "owner",
+  "admin",
+  "manager",
+  "employee",
+]);
 
 export const user = pgTable("user", {
 	id: t.text("id").primaryKey(),
@@ -9,6 +16,7 @@ export const user = pgTable("user", {
 	emailVerified: t.boolean("email_verified").notNull(),
 	image: t.text("image"),
 	createdAt: t.timestamp("created_at", { precision: 6, withTimezone: true }).notNull(),
+	role: appRoleEnum("role").default("employee"),
 	updatedAt: t.timestamp("updated_at", { precision: 6, withTimezone: true }).notNull(),
 });
 
