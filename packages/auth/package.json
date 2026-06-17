@@ -14,6 +14,10 @@
     "./client/vanilla": {
       "types": "./src/client/vanilla.ts",
       "default": "./src/client/vanilla.ts"
+    },
+    "./rbac": {
+      "types": "./src/rbac.ts",
+      "default": "./src/rbac.ts"
     }
   },
   "dependencies": {

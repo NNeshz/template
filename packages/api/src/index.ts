@@ -5,6 +5,7 @@ import { env } from "./utils/envs";
 
 import { betterAuthPlugin } from "./utils/better-auth-plugin";
 import { openApiDocumentation } from "./utils/openapi-meta";
+import { modules } from "./modules";
 
 const allowedOrigins = [
   env.NEXT_PUBLIC_FRONTEND_URL,
@@ -33,17 +34,18 @@ export const api = new Elysia({
         paths: [/\/api\/auth\b/],
       },
     }),
-  );
+  )
+  .use(modules);
 
 /**
  * How to add new modules:
- *   import { myModule } from "./modules/my-module/routes";
- *   export const api = new Elysia(...)
- *     .use(betterAuthPlugin)
- *     ...
- *     .use(myModule);   // ← always chain on the same expression
+ *   1. Create packages/api/src/modules/<name>/routes.ts exporting `<name>Module`
+ *      (plus service.ts + schema.ts) — see modules/health for the canonical shape.
+ *   2. Run `bun run gen` (or just `bun run dev` / `bun run check-types`, which
+ *      run it first). The generated `./modules` barrel mounts it here automatically.
  *
- * Api = typeof api will automatically include all chained modules.
+ * You never edit this file to add a module. `Api = typeof api` includes every
+ * module because the generated barrel chains them statically.
  *
  * IMPORTANT — inside route handlers always use status() not error():
  *   import { status } from "elysia";

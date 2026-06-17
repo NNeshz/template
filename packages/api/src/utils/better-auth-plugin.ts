@@ -1,6 +1,6 @@
 import { Elysia, status } from "elysia";
 import { auth } from "@template/auth";
-import { can, type AppRole } from "@template/auth";
+import { can, type AppRole, type AppPermission } from "@template/auth";
 import { apiError } from "./api-envelope";
 
 export const betterAuthPlugin = new Elysia({ name: "better-auth-plugin" })
@@ -23,7 +23,7 @@ export const betterAuthPlugin = new Elysia({ name: "better-auth-plugin" })
       },
     },
 
-    authorized(permissions: Parameters<typeof can>[1]) {
+    authorized(permissions: AppPermission[]) {
       return {
         async resolve({ request: { headers } }) {
           const session = await auth.api.getSession({ headers });

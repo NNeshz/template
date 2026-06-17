@@ -8,8 +8,6 @@
       "@template/auth/*": ["../../packages/auth/src/*"],
       "@template/ui": ["../../packages/ui/src/index.ts"],
       "@template/ui/*": ["../../packages/ui/src/*"],
-      "@template/api": ["../../packages/api/src/index.ts"],
-      "@template/api/*": ["../../packages/api/src/*"],
       "@template/database": ["../../packages/database/src/index.ts"],
       "@template/database/*": ["../../packages/database/src/*"]
     }

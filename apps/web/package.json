@@ -13,7 +13,6 @@
   "dependencies": {
     "@tabler/icons-react": "^3.41.1",
     "@tanstack/react-query": "^5.100.6",
-    "@template/api": "*",
     "@template/auth": "*",
     "@template/ui": "*",
     "next": "16.2.0",
