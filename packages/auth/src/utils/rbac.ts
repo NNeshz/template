@@ -29,7 +29,7 @@ const baseStatement = {
  * automatically through `modulePolicy`.
  */
 const moduleStatements = {
-  clientes: ["view", "create", "update", "delete"],
+  // productos: ["view", "create", "update", "delete"],
 } as const;
 
 export const statement = {
@@ -44,7 +44,8 @@ type Resource = keyof Statement & string;
 type ActionOf<R extends Resource> = Statement[R][number] & string;
 
 /**
- * Dotted permission union, e.g. `"clientes.view"`.
+ * Dotted permission union, e.g. `"users.view"` (and `"<module>.<action>"` once
+ * a module is registered in `moduleStatements`).
  * This is what powers autocomplete in `authorized([...])` and `can(...)`.
  */
 export type AppPermission = {
@@ -117,7 +118,7 @@ export const roles = { owner, admin, manager, employee } as const satisfies Reco
   unknown
 >;
 
-/** Convert `["clientes.view", "clientes.create"]` -> `{ clientes: ["view", "create"] }`. */
+/** Convert `["users.view", "users.create"]` -> `{ users: ["view", "create"] }`. */
 function toPermissionObject(permissions: AppPermission[]): PermissionObject {
   const out: Record<string, string[]> = {};
   for (const permission of permissions) {
@@ -133,8 +134,8 @@ function toPermissionObject(permissions: AppPermission[]): PermissionObject {
  * Check whether a role has ALL of the given permissions.
  *
  * @example
- * can("admin", ["clientes.create"]);   // true
- * can("employee", ["clientes.view"]);  // false
+ * can("admin", ["users.create"]);    // true
+ * can("employee", ["users.delete"]); // false
  */
 export function can(role: AppRole, permissions: AppPermission[]): boolean {
   const authorize = roles[role].authorize as (p: PermissionObject) => { success: boolean };

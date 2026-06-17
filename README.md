@@ -110,7 +110,7 @@ Para proteger una ruta en el backend:
 
 // Solo usuarios con los permisos indicados (string "recurso.acción", con autocompletado)
 .post("/usuarios", handler, { authorized: ["users.create"] })
-.get("/clientes", handler, { authorized: ["clientes.view"] })
+.get("/usuarios", handler, { authorized: ["users.view"] })
 ```
 
 Los permisos son strings `"<recurso>.<acción>"` derivados del `statement`, así que
@@ -180,7 +180,9 @@ Los puntos de integración son **declarativos**: agregar un módulo (`productos`
 editan `index.ts`, `dashboard-sidebar-data.ts` ni la sidebar. El único punto
 manual de RBAC es **una línea** en `rbac.ts` (ver nota más abajo).
 
-Tomando `clientes` como plantilla, para un módulo `productos`:
+El módulo `health` (`packages/api/src/modules/health/`) es la plantilla mínima del
+patrón (`routes.ts` + `service.ts` + `schema.ts`). Para un módulo `productos`
+completo con tabla, RBAC y sidebar:
 
 **1. Tabla (Drizzle)** — `packages/database/src/schema/productos.ts`
 
@@ -200,7 +202,6 @@ export const productos = pgTable("productos", {
 
 ```ts
 const moduleStatements = {
-  clientes:  ["view", "create", "update", "delete"],
   productos: ["view", "create", "update", "delete"], // ← única línea nueva
 } as const;
 ```
