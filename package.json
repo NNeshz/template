@@ -21,6 +21,10 @@
     "turbo": "^2.9.6",
     "typescript": "5.9.2"
   },
+  "_comment_overrides": "Force a single Elysia copy across the workspace. Two copies silently break Elysia macros (the authorized/authenticated auth guards), bypassing RBAC. Keep aligned with packages/api.",
+  "overrides": {
+    "elysia": "^1.4.29"
+  },
   "engines": {
     "node": ">=18"
   },

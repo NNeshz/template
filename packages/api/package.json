@@ -12,7 +12,7 @@
     "@sinclair/typebox": "^0.34.49",
     "@template/auth": "*",
     "@template/database": "*",
-    "elysia": "latest"
+    "elysia": "^1.4.29"
   },
   "devDependencies": {
     "bun-types": "latest",
