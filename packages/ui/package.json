@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "ui:add": "bunx shadcn@latest add"
+    "ui:add": "bunx shadcn@latest add",
+    "lint": "eslint . --max-warnings 0"
   },
   "exports": {
     ".": "./src/index.ts",
@@ -34,9 +35,11 @@
     "react-dom": "^18 || ^19"
   },
   "devDependencies": {
+    "@template/eslint-config": "*",
     "@template/typescript-config": "*",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.4",
     "tailwindcss": "latest",
     "typescript": "^5"
   }

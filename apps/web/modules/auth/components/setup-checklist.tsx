@@ -1,4 +1,4 @@
-import { IconCircleCheckFilled, IconCircleDashed } from "@tabler/icons-react";
+import { IconCircleCheckFilled } from "@tabler/icons-react";
 
 interface CheckItem {
   label: string;
